@@ -1,0 +1,15 @@
+http:
+  routers:
+    demo-router:
+      rule: "PathPrefix(`/`)"
+      entryPoints:
+        - "web"
+      service: "demo-cluster"
+
+  services:
+    demo-cluster:
+      loadBalancer:
+        servers:
+          - url: "http://web1:8080"
+          - url: "http://web2:8080"
+          - url: "http://web3:8080"

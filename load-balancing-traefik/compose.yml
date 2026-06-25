@@ -1,0 +1,28 @@
+services:
+  web1:
+    build: .
+    environment:
+      - SERVER_NAME=Server-1
+    
+  web2:
+    build: .
+    environment:
+      - SERVER_NAME=Server-2
+
+  web3:
+    build: .
+    environment:
+      - SERVER_NAME=Server-3
+
+  traefik:
+    image: traefik:v3.0
+    ports:
+      - "8080:80"
+      - "8081:8080"
+    volumes:
+      - ./traefik.yml:/etc/traefik/traefik.yml
+      - ./dynamic.yml:/etc/traefik/dynamic.yml
+    depends_on:
+      - web1
+      - web2
+      - web3
