@@ -1,0 +1,14 @@
+api:
+  insecure: true
+
+providers:
+  consulCatalog:
+    endpoint:
+      address: "consul:8500"
+    exposedByDefault: true
+  file:
+    filename: "/etc/traefik/dynamic.yml"
+
+entryPoints:
+  web:
+    address: ":80"

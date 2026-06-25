@@ -1,0 +1,13 @@
+{
+  "service": {
+    "name": "go-web-app",
+    "id": "web1",
+    "address": "web1",
+    "port": 8080,
+    "check": {
+      "http": "http://web1:8080/healthz",
+      "interval": "5s",
+      "timeout": "2s"
+    }
+  }
+}
